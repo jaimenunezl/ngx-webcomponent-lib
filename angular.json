@@ -8,6 +8,7 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+
         }
       },
       "root": "",
@@ -30,7 +31,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/elements.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -107,7 +110,7 @@
       "projectType": "library",
       "root": "projects/components",
       "sourceRoot": "projects/components/src",
-      "prefix": "lib",
+      "prefix": "eco",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

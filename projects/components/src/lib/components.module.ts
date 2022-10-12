@@ -1,9 +1,20 @@
 import { NgModule } from '@angular/core';
-import { ComponentsComponent } from './components.component';
+
+import { WebcomponentFourComponent } from './components/webcomponent-four/webcomponent-four.component';
+import { WebcomponentOneComponent } from './components/webcomponent-one/webcomponent-one.component';
+import { WebcomponentTwoComponent } from './components/webcomponent-two/webcomponent-two.component';
 
 @NgModule({
-  declarations: [ComponentsComponent],
+  declarations: [
+    WebcomponentFourComponent,
+    WebcomponentOneComponent,
+    WebcomponentTwoComponent,
+  ],
   imports: [],
-  exports: [ComponentsComponent],
+  exports: [
+    WebcomponentFourComponent,
+    WebcomponentOneComponent,
+    WebcomponentTwoComponent,
+  ],
 })
 export class ComponentsModule {}
