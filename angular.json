@@ -195,7 +195,8 @@
           },
           "configurations": {
             "ci": {
-              "karmaConfig": "projects/web-components/karma-ci.conf.js"
+              "karmaConfig": "projects/web-components/karma-ci.conf.js",
+              "codeCoverage": true
             }
           }
         }

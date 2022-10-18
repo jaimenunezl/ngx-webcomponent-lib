@@ -3,7 +3,7 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
-      require('karma-summary-reporter'),
+      require('karma-coverage'),
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('@angular-devkit/build-angular/plugins/karma'),
@@ -15,11 +15,27 @@ module.exports = function (config) {
         random: false,
       },
     },
-    reporters: ['dots', 'summary'],
-    summaryReporter: {
-      show: 'failed',
-      specLength: 50,
-      overviewColumn: true,
+    reporters: ['dots', 'coverage'],
+    coverageReporter: {
+      type: 'text-summary',
+      dir: '../../coverage/web-components',
+      subdir: '.',
+      check: {
+        emitWarning: false,
+        global: {
+          statements: 80,
+          branches: 80,
+          functions: 80,
+          lines: 80,
+        },
+      },
+      watermarks: {
+        statements: [50, 75],
+        functions: [50, 75],
+        branches: [50, 75],
+        lines: [50, 75],
+      },
+      reporters: [{ type: 'html' }, { type: 'text-summary' }],
     },
     port: 9876,
     colors: true,
