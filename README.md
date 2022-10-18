@@ -2,8 +2,8 @@
 
 ## Directory
 
-- `projects/web-components` has web components library
-- `src/app` has web components
+- `projects/web-components` has web components library and atomic components
+- `src/app` allow to test the web components library
 
 ## Installation
 
