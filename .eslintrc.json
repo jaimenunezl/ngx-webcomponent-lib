@@ -2,7 +2,11 @@
   "parser": "@typescript-eslint/parser",
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:sonarjs/recommended"
+  ],
+  "plugins": [
+    "sonarjs"
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -12,8 +16,26 @@
     "semi": [
       "error",
       "always"
-    ]
-    // Aquí se pueden especificar reglas propias para ESLint, así como para sobrescribir las reglas que ya existen.
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error",
+          "debug"
+        ]
+      }
+    ],
+    "@typescript-eslint/no-empty-function": [
+      "error",
+      {
+        "allow": [
+          "constructors"
+        ]
+      }
+    ],
+    "require-await": "warn"
   },
   "ignorePatterns": [
     "*.js"

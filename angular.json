@@ -25,7 +25,7 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
-            "scripts": ["dist/web-components/example.js"]
+            "scripts": ["dist/web-components/example-1.0.0.js"]
           },
           "configurations": {
             "production": {
@@ -192,6 +192,11 @@
             ],
             "styles": ["projects/web-components/src/styles.scss"],
             "scripts": []
+          },
+          "configurations": {
+            "ci": {
+              "karmaConfig": "projects/web-components/karma-ci.conf.js"
+            }
           }
         }
       }

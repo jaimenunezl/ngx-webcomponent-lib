@@ -2,5 +2,4 @@
 
 ## Directory
 
-- `projects/components` has web components
-- `projects/elements` import web components and build it
+- `projects/web-components` has web components
