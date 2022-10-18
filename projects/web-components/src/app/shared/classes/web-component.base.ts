@@ -7,7 +7,7 @@ export abstract class WebComponentBase {
       injector,
     });
 
-    customElements.define(`eco-${name}`, ngElement);
+    customElements.define(`wceco-${name}`, ngElement);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function

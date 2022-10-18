@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-webcomponent-lib": {
+    "ngx-web-component-lib": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-webcomponent-lib",
+            "outputPath": "dist/ngx-web-component-lib",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,7 +25,7 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
-            "scripts": ["./dist/elements/elements.js"]
+            "scripts": ["dist/web-components/example.js"]
           },
           "configurations": {
             "production": {
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ngx-webcomponent-lib:build:production"
+              "browserTarget": "ngx-web-component-lib:build:production"
             },
             "development": {
-              "browserTarget": "ngx-webcomponent-lib:build:development"
+              "browserTarget": "ngx-web-component-lib:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-webcomponent-lib:build"
+            "browserTarget": "ngx-web-component-lib:build"
           }
         },
         "test": {
@@ -93,33 +93,105 @@
         }
       }
     },
-    "components": {
-      "projectType": "library",
-      "root": "projects/components",
-      "sourceRoot": "projects/components/src",
+    "web-components": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/web-components",
+      "sourceRoot": "projects/web-components/src",
       "prefix": "eco",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "project": "projects/components/ng-package.json"
+            "customWebpackConfig": {
+              "path": "./projects/web-components/wc-webpack.config.js"
+            },
+            "index": "projects/web-components/src/index.html",
+            "main": "projects/web-components/src/main.ts",
+            "polyfills": "projects/web-components/src/polyfills.ts",
+            "tsConfig": "projects/web-components/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "outputHashing": "none",
+            "assets": ["projects/web-components/src/assets"],
+            "styles": ["projects/web-components/src/styles.scss"]
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/components/tsconfig.lib.prod.json"
+              "buildOptimizer": true,
+              "optimization": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/web-components/src/environments/environment.ts",
+                  "with": "projects/web-components/src/environments/environment.prod.ts"
+                }
+              ]
             },
             "development": {
-              "tsConfig": "projects/components/tsconfig.lib.json"
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "projects/web-components/src/environments/environment.ts",
+                  "with": "projects/web-components/src/environments/environment.dev.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
         },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "web-components:build:production"
+            },
+            "development": {
+              "browserTarget": "web-components:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "web-components:build"
+          }
+        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/components/src/test.ts",
-            "tsConfig": "projects/components/tsconfig.spec.json",
-            "karmaConfig": "projects/components/karma.conf.js"
+            "main": "projects/web-components/src/test.ts",
+            "polyfills": "projects/web-components/src/polyfills.ts",
+            "tsConfig": "projects/web-components/tsconfig.spec.json",
+            "karmaConfig": "projects/web-components/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/web-components/src/favicon.ico",
+              "projects/web-components/src/assets"
+            ],
+            "styles": ["projects/web-components/src/styles.scss"],
+            "scripts": []
           }
         }
       }

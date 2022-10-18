@@ -16,10 +16,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ngx-webcomponent-lib'`, () => {
+  it(`should have as title 'ngx-web-component-lib'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ngx-webcomponent-lib');
+    expect(app.title).toEqual('ngx-web-component-lib');
   });
 
   it('should render title', () => {
@@ -27,7 +27,7 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'ngx-webcomponent-lib app is running!'
+      'ngx-web-component-lib app is running!'
     );
   });
 });

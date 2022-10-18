@@ -1,20 +1,20 @@
 {
-  "name": "ngx-webcomponent-lib",
+  "name": "ngx-web-component-lib",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "wc:create": "ts-node scripts/wc-create.ts",
+    "wc:build": "ts-node scripts/wc-build.ts",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "eslint '*/**/*.ts' --quiet",
-    "lint:fix": "eslint '*/**/*.ts' --quiet --fix",
-    "build:elements": "ng build --project elements && yarn pack:elements",
-    "pack:elements": "cat ./dist/elements/{runtime,polyfills,main}.js > dist/elements/elements.js"
+    "lint:fix": "eslint '*/**/*.ts' --quiet --fix"
   },
   "private": true,
   "dependencies": {
+    "@angular-builders/custom-webpack": "14.0.1",
     "@angular/animations": "^14.2.6",
     "@angular/common": "^14.2.6",
     "@angular/compiler": "^14.2.6",
@@ -54,6 +54,7 @@
     "prettier": "^2.7.1",
     "prettier-eslint": "^15.0.1",
     "ts-node": "^10.9.1",
-    "typescript": "~4.8.4"
+    "typescript": "~4.8.4",
+    "uuid": "^9.0.0"
   }
 }

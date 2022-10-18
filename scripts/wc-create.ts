@@ -53,7 +53,7 @@ async function main() {
       [
         'ng g c components/',
         elementName,
-        ' --project components',
+        ' --project web-components',
         ' --skip-import',
       ].join('')
     );
@@ -65,7 +65,7 @@ async function main() {
 
   const webComponentPath = path.join(
     workDir,
-    'projects/components/src/lib/components/',
+    'projects/web-components/src/app/components/',
     elementName
   );
 
@@ -96,12 +96,27 @@ async function main() {
     console.log('❌  Cannot copy file: ', error);
     return;
   }
+
+  try {
+    await execCommand(
+      [
+        'cp',
+        ' scripts/templates/package.json ',
+        path.join(webComponentPath, 'package.json'),
+      ].join('')
+    );
+  } catch (error) {
+    console.log('❌  Cannot copy file: ', error);
+    return;
+  }
+
   console.log('✅ Files copied successfully!');
 
   console.log('📝 Editing files...');
   try {
     let compileFileContent: Buffer;
     let moduleFileContent: Buffer;
+    let packageFileContent: Buffer;
 
     try {
       compileFileContent = readFileSync(
@@ -110,6 +125,9 @@ async function main() {
       moduleFileContent = readFileSync(
         path.join(webComponentPath, elementName + '.module.ts')
       );
+      packageFileContent = readFileSync(
+        path.join(webComponentPath, 'package.json')
+      );
     } catch (error) {
       console.log('❌  Cannot read files: ', error);
       return;
@@ -117,6 +135,7 @@ async function main() {
 
     let compileEdited = '';
     let moduleEdited = '';
+    let packageEdited = '';
 
     compileEdited = compileFileContent
       .toString()
@@ -129,6 +148,10 @@ async function main() {
       .replace(/<COMPONENT_PARAM>/gm, elementName)
       .replace(/<MODULE_PASCAL>/gm, modulePascalCase);
 
+    packageEdited = packageFileContent
+      .toString()
+      .replace(/<COMPONENT_PARAM>/gm, elementName);
+
     try {
       writeFileSync(
         path.join(webComponentPath, elementName + '.compile.ts'),
@@ -138,6 +161,7 @@ async function main() {
         path.join(webComponentPath, elementName + '.module.ts'),
         moduleEdited
       );
+      writeFileSync(path.join(webComponentPath, 'package.json'), packageEdited);
     } catch (error) {
       console.log('❌  Cannot edit files: ', error);
       return;

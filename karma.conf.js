@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ngx-webcomponent-lib'),
+      dir: require('path').join(__dirname, './coverage/ngx-web-component-lib'),
       subdir: '.',
       reporters: [
         { type: 'html' },
