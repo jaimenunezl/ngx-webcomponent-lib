@@ -1,13 +1,9 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { <MODULE_PASCAL> } from './<MODULE_PARAM>.module';
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-
-if (environment.production) {
-  enableProdMode();
-}
+enableProdMode();
 
 platformBrowserDynamic()
-  .bootstrapModule(AppModule)
+  .bootstrapModule(<MODULE_PASCAL>)
   .catch((err) => console.error(err));
