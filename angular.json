@@ -201,6 +201,198 @@
           }
         }
       }
+    },
+    "web-sandbox": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/web-sandbox",
+      "sourceRoot": "projects/web-sandbox/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/web-sandbox",
+            "index": "projects/web-sandbox/src/index.html",
+            "main": "projects/web-sandbox/src/main.ts",
+            "polyfills": "projects/web-sandbox/src/polyfills.ts",
+            "tsConfig": "projects/web-sandbox/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/web-sandbox/src/favicon.ico",
+              "projects/web-sandbox/src/assets"
+            ],
+            "styles": ["projects/web-sandbox/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/web-sandbox/src/environments/environment.ts",
+                  "with": "projects/web-sandbox/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "web-sandbox:build:production"
+            },
+            "development": {
+              "browserTarget": "web-sandbox:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "web-sandbox:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/web-sandbox/src/test.ts",
+            "polyfills": "projects/web-sandbox/src/polyfills.ts",
+            "tsConfig": "projects/web-sandbox/tsconfig.spec.json",
+            "karmaConfig": "projects/web-sandbox/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/web-sandbox/src/favicon.ico",
+              "projects/web-sandbox/src/assets"
+            ],
+            "styles": ["projects/web-sandbox/src/styles.scss"],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "web-storybook": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/web-storybook",
+      "sourceRoot": "projects/web-storybook/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/web-storybook",
+            "index": "projects/web-storybook/src/index.html",
+            "main": "projects/web-storybook/src/main.ts",
+            "polyfills": "projects/web-storybook/src/polyfills.ts",
+            "tsConfig": "projects/web-storybook/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/web-storybook/src/favicon.ico",
+              "projects/web-storybook/src/assets"
+            ],
+            "styles": ["projects/web-storybook/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/web-storybook/src/environments/environment.ts",
+                  "with": "projects/web-storybook/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "web-storybook:build:production"
+            },
+            "development": {
+              "browserTarget": "web-storybook:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "web-storybook:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/web-storybook/src/test.ts",
+            "polyfills": "projects/web-storybook/src/polyfills.ts",
+            "tsConfig": "projects/web-storybook/tsconfig.spec.json",
+            "karmaConfig": "projects/web-storybook/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/web-storybook/src/favicon.ico",
+              "projects/web-storybook/src/assets"
+            ],
+            "styles": ["projects/web-storybook/src/styles.scss"],
+            "scripts": []
+          }
+        }
+      }
     }
   }
 }
