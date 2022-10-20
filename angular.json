@@ -25,7 +25,7 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
-            "scripts": ["dist/web-components/example-1.0.0.js"]
+            "scripts": ["dist/web-components/example.js"]
           },
           "configurations": {
             "production": {
@@ -146,9 +146,9 @@
             "development": {
               "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
+              "vendorChunk": false,
               "extractLicenses": false,
-              "sourceMap": true,
+              "sourceMap": false,
               "namedChunks": true,
               "fileReplacements": [
                 {
