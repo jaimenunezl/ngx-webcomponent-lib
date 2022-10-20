@@ -1,0 +1,25 @@
+header { 
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  background-color: var(--darkish-blue);
+  color: #ffffff;
+  padding: 0.75rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  margin: 0;
+
+  h1 {
+    font-family: Roboto;
+    font-size: 26px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: var(--white);
+  }
+  img.logo {
+    margin: 0 1.5rem;
+  }
+}

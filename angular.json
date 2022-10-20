@@ -227,7 +227,7 @@
               "projects/web-sandbox/src/assets"
             ],
             "styles": ["projects/web-sandbox/src/styles.scss"],
-            "scripts": []
+            "scripts": ["dist/web-components/example-1.0.0.js"]
           },
           "configurations": {
             "production": {

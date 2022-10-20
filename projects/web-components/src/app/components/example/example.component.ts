@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'eco-example',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./example.component.scss'],
 })
 export class ExampleComponent {
+  @Input() title = '';
+  @Input() nextPage = '';
+  @Output() goToNextPageEmitter = new EventEmitter();
+
   constructor() {}
+
+  goToNextPage() {
+    this.goToNextPageEmitter.emit(this.nextPage);
+  }
 }

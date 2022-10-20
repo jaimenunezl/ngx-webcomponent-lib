@@ -1,1 +1,136 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  font-family: Roboto;
+  margin: 0;
+}
+
+pre[class*='language-'] {
+  border-radius: 5px;
+  border: solid 1px var(--brownish) !important;
+  background-color: var(--dark-navy-blue) !important;
+  overflow-x: scroll !important;
+  max-width: 90% !important;
+
+  code {
+    font-size: 14px;
+    text-shadow: none !important;
+    color: #ffffff;
+
+    .token.atrule,
+    .token.attr-value,
+    .token.keyword {
+      color: #019bbc;
+    }
+
+    .token.function,
+    .token.class-name {
+      color: #ff0000;
+    }
+
+    .token.operator,
+    .token.entity,
+    .token.url,
+    .language-css .token.string,
+    .style .token.string {
+      color: #ffffff;
+      background-color: transparent;
+    }
+
+    .token.property,
+    .token.tag,
+    .token.boolean,
+    .token.number,
+    .token.constant,
+    .token.symbol,
+    .token.deleted {
+      color: #ff0000;
+    }
+
+    .token.selector,
+    .token.attr-name,
+    .token.string,
+    .token.char,
+    .token.builtin,
+    .token.inserted {
+      color: #3edc5f;
+    }
+  }
+}
+
+:root {
+  --darkish-blue: #00377d;
+  --orange: #f0781e;
+  --dark-navy-blue: #00000a;
+  --bright-sky-blue: #00c8ff;
+  --marigold: #ffbe00;
+  --white: #ffffff;
+  --success: #37c846;
+  --clear-blue: #2896ff;
+  --navy-blue-40: rgba(0, 25, 80, 0.4);
+  --brownish: rgba(120, 120, 120, 0.5);
+  --azul: #3264dc;
+  --clear-blue: #198afd;
+  --navy-blue: #001950;
+  --gray-light: #f5f7f9;
+}
+
+h1 {
+  font-family: Roboto;
+  font-size: 32px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--navy-blue);
+}
+
+h2 {
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--navy-blue);
+}
+
+h3 {
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--dark-navy-blue);
+}
+
+p {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--dark-navy-blue);
+}
+
+section {
+  display: flex;
+  margin: 1.75rem 0;
+
+  div {
+    border: solid 1px var(--brownish);
+
+    margin-right: 2rem;
+    min-width: 175px;
+    min-height: 145px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
