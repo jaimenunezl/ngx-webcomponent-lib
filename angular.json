@@ -323,7 +323,7 @@
               "projects/web-storybook/src/assets"
             ],
             "styles": ["projects/web-storybook/src/styles.scss"],
-            "scripts": []
+            "scripts": ["dist/web-components/example-1.0.0.js"]
           },
           "configurations": {
             "production": {
