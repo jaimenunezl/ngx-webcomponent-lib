@@ -309,7 +309,7 @@
       "sourceRoot": "projects/web-storybook/src",
       "prefix": "app",
       "architect": {
-        "build": {
+        "angular-build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/web-storybook",
@@ -358,10 +358,17 @@
           },
           "defaultConfiguration": "production"
         },
+        "build": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "browserTarget": "web-storybook:angular-build:production",
+            "outputDir": "dist/web-storybook"
+          }
+        },
         "serve": {
           "builder": "@storybook/angular:start-storybook",
           "options": {
-            "browserTarget": "web-storybook:build:development",
+            "browserTarget": "web-storybook:angular-build:development",
             "port": 6006
           }
         },
@@ -386,14 +393,11 @@
             "styles": ["projects/web-storybook/src/styles.scss"],
             "scripts": []
           }
-        },
-        "build-storybook": {
-          "builder": "@storybook/angular:build-storybook",
-          "options": {
-            "browserTarget": "web-storybook:build:production"
-          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
