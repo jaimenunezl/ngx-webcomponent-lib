@@ -13,6 +13,8 @@ export class ExampleComponent {
   constructor() {}
 
   goToNextPage() {
+    if (this.nextPage === 'not found') alert('nextPage not found');
+
     this.goToNextPageEmitter.emit(this.nextPage);
   }
 }

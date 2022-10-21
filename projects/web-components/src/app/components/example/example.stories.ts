@@ -43,3 +43,9 @@ Detalle.args = {
   title: 'Detalle',
   nextPage: 'catalogo',
 };
+
+export const NextPageNotFound = Template.bind({});
+NextPageNotFound.args = {
+  title: 'Catalogo',
+  nextPage: 'not found',
+};
