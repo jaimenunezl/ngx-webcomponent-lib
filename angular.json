@@ -227,7 +227,7 @@
               "projects/web-sandbox/src/assets"
             ],
             "styles": ["projects/web-sandbox/src/styles.scss"],
-            "scripts": ["dist/web-components/example-1.0.0.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -323,7 +323,7 @@
               "projects/web-storybook/src/assets"
             ],
             "styles": ["projects/web-storybook/src/styles.scss"],
-            "scripts": ["dist/web-components/example-1.0.0.js"]
+            "scripts": ["dist/web-components/example.js"]
           },
           "configurations": {
             "production": {

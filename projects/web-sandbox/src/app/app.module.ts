@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CatalogComponent } from './components/catalog/catalog.component';
-import { DeviceDetailComponent } from './components/device-detail/device-detail.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ExampleComponent } from './components/example/example.component';
 
 @NgModule({
-  declarations: [AppComponent, CatalogComponent, DeviceDetailComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [AppComponent, ExampleComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

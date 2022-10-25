@@ -1,3 +1,19 @@
-<h1>{{title}}</h1>
-<h2>Este es un ejemplo de Web Component</h2>
-<button *ngIf="nextPage" (click)="goToNextPage()">Ir a {{nextPage}}</button>
+<ng-container *ngIf="smartphonesList.length > 0; else noSmartphonesTemplate">
+  <div class="Post" *ngFor="let smartphone of smartphonesList">
+    <div
+      class="Post_image"
+      [ngStyle]="{ 'background-image': 'url(' + smartphone.thumbnail + ')' }"
+    ></div>
+    <div class="Post_main">
+      <h5>{{ smartphone.brand }}</h5>
+      <h3>{{ smartphone.title }}</h3>
+      <p class="Post_price">${{ smartphone.price }}</p>
+    </div>
+  
+    <button class="Post_button" (click)="onBuyClick(smartphone)">Comprar</button>
+  </div>
+</ng-container>
+
+<ng-template #noSmartphonesTemplate>
+  <h4>No hay devices</h4>
+</ng-template>

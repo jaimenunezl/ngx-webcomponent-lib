@@ -5,7 +5,7 @@
     "ng": "ng",
     "start:dev": "ng serve --project ngx-web-component-lib --configuration development",
     "start:sandbox:dev": "ng serve --project web-sandbox --configuration development",
-    "start:storybook:dev": "ng serve --project web-storybook --configuration development",
+    "start:storybook": "ng serve --project web-storybook",
     "wc:create": "ts-node scripts/wc-create.ts",
     "wc:build": "ts-node scripts/wc-build.ts",
     "wc:test:ci": "ng test --configuration ci --project web-components",

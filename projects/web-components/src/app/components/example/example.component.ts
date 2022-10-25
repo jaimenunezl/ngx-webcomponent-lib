@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
+interface ISmartphone {
+  brand: string;
+  description: string;
+  id: string;
+  title: string;
+  price: number;
+  thumbnail: string;
+}
 
 @Component({
   selector: 'eco-example',
@@ -6,15 +14,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./example.component.scss'],
 })
 export class ExampleComponent {
-  @Input() title = '';
-  @Input() nextPage = '';
-  @Output() goToNextPageEmitter = new EventEmitter();
+  @Input() smartphonesList: ISmartphone[] = [];
+  @Output() onBuyClickEmitter = new EventEmitter<ISmartphone>();
 
   constructor() {}
 
-  goToNextPage() {
-    if (this.nextPage === 'not found') alert('nextPage not found');
-
-    this.goToNextPageEmitter.emit(this.nextPage);
+  onBuyClick(smarthphone: ISmartphone) {
+    this.onBuyClickEmitter.emit(smarthphone);
   }
 }

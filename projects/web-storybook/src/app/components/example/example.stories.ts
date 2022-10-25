@@ -2,11 +2,10 @@ import { moduleMetadata, Story, Meta } from '@storybook/angular';
 
 import { CommonModule } from '@angular/common';
 
-import { Story, Meta } from '@storybook/angular';
-
 import { action } from '@storybook/addon-actions';
 
 import { ExampleComponent } from './example.component';
+import { exampleDevicesMock } from './example-mock';
 
 export default {
   component: ExampleComponent,
@@ -21,31 +20,23 @@ export default {
 } as Meta;
 
 export const actionsData = {
-  goNextStep: action('goNextStep'),
+  onBuyClickEmitter: action('onBuyClickEmitter'),
 };
 
 const Template: Story<ExampleComponent> = (args) => ({
   component: ExampleComponent,
   props: {
     ...args,
-    goNextStep: actionsData.goNextStep,
+    onBuyFn: actionsData.onBuyClickEmitter,
   },
 });
 
-export const Catalogo = Template.bind({});
-Catalogo.args = {
-  title: 'Catalogo',
-  nextPage: 'detalle',
+export const Default = Template.bind({});
+Default.args = {
+  smartphonesList: exampleDevicesMock,
 };
 
-export const Detalle = Template.bind({});
-Detalle.args = {
-  title: 'Detalle',
-  nextPage: 'catalogo',
-};
-
-export const NextPageNotFound = Template.bind({});
-NextPageNotFound.args = {
-  title: 'Catalogo',
-  nextPage: 'not found',
+export const NoDevices = Template.bind({});
+NoDevices.args = {
+  smartphonesList: [],
 };
